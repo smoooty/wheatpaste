@@ -19,7 +19,7 @@ const Div = styled.div`
   grid-template-rows: repeat(10, 75px);
   grid-template-columns: repeat(12, minmax(75px, 1fr));
 
-  @media (max-width: 700px) {
+  @media (max-width: 790px) {
     grid-template-areas:
       'dev dev dev dev dev dev'
       'nme nme nme nme nme nme'

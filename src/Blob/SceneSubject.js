@@ -73,7 +73,7 @@ export default scene => {
   // }
 
   function update(time, mousePosition) {
-    console.log('mouse', mousePosition.x);
+    // console.log('mouse', mousePosition.x);
     //var time = performance.now() * 0.0006;
     var k = 1.5;
 

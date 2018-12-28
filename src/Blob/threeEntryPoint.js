@@ -1,5 +1,8 @@
 import SceneManager from './SceneManager';
 
+const deviceMotionSupported =
+  window.DeviceOrientationEvent && 'ontouchstart' in window;
+
 export default container => {
   const canvas = createCanvas(document, container);
   const sceneManager = new SceneManager(canvas);
@@ -18,7 +21,9 @@ export default container => {
 
   function bindEventListeners() {
     window.onresize = resizeCanvas;
-    window.onmousemove = mouseMove;
+    deviceMotionSupported
+      ? (window.ondeviceorientation = deviceMotion)
+      : (window.onmousemove = mouseMove);
     resizeCanvas();
   }
 
@@ -40,6 +45,11 @@ export default container => {
       screenX - canvasHalfWidth,
       screenY - canvasHalfHeight
     );
+  }
+
+  function deviceMotion({ alpha, beta, gamma }) {
+    console.log('motion', alpha, beta, gamma);
+    sceneManager.onMouseMove(alpha * 10, beta);
   }
 
   function render(time) {

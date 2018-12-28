@@ -12,7 +12,7 @@ const centerFlex = css`
 
 const H1Size = () =>
   slopeCalc({
-    'font-size': { 300: 40, 1080: 110 },
+    'font-size': { 375: 40, 1080: 110 },
   });
 
 const H1 = styled.h1`
@@ -25,7 +25,7 @@ const H1 = styled.h1`
 
 const H2Size = () =>
   slopeCalc({
-    'font-size': { 300: 20, 1080: 50 },
+    'font-size': { 375: 20, 1080: 50 },
   });
 
 const H2 = styled.h2`
@@ -36,7 +36,7 @@ const H2 = styled.h2`
 
 const H3Size = () =>
   slopeCalc({
-    'font-size': { 300: 118, 1080: 138 },
+    'font-size': { 375: 118, 1080: 138 },
   });
 
 const H3 = styled.h3`
@@ -50,11 +50,12 @@ const H3 = styled.h3`
 
 const H4Size = () =>
   slopeCalc({
-    'font-size': { 300: 40, 1080: 50 },
+    'font-size': { 375: 40, 1080: 50 },
   });
 
-const H4 = styled.h3`
+const H4 = styled.h4`
   margin: 0;
+  white-space: nowrap;
   ${centerFlex};
   ${H4Size};
   ${({ css }) => css};
@@ -62,7 +63,7 @@ const H4 = styled.h3`
 
 const ASize = () =>
   slopeCalc({
-    'font-size': { 300: 50, 1080: 70 },
+    'font-size': { 375: 50, 1080: 70 },
   });
 
 const A = styled.a`
