@@ -1,7 +1,7 @@
 import SceneManager from './SceneManager';
 
 const deviceMotionSupported =
-  window.DeviceOrientationEvent && 'ontouchstart' in window;
+  window.DeviceMotionEvent && 'ontouchstart' in window;
 
 export default container => {
   const canvas = createCanvas(document, container);
@@ -48,7 +48,6 @@ export default container => {
   }
 
   function deviceMotion({ accelerationIncludingGravity }) {
-    //console.log('motion', x, y, z);
     const { x, y, z } = accelerationIncludingGravity;
     sceneManager.onMouseMove(x * 100, y * 100);
   }
