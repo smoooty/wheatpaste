@@ -71,17 +71,10 @@ export default scene => {
 
   //   return geometry;
   // }
-
-  function update(time, mousePosition) {
-    // console.log('mouse', mousePosition.x);
-    //var time = performance.now() * 0.0006;
+  function deformGeometry(time, position) {
     var k = 1.5;
-
-    // let x = this.props.x / 2;
-    // let y = this.props.y;
-    let x = mousePosition.x / 600;
-    let y = 3;
-    // let y = this.props.y < 0 ? 1 : this.props.y / 10;
+    let x = position.x / 600;
+    let y = position.y < 200 ? 3 : Math.abs(position.y / 100);
 
     for (var i = 0; i < blob.geometry.vertices.length; i++) {
       var p = blob.geometry.vertices[i];
@@ -91,11 +84,36 @@ export default scene => {
             noise.noise.perlin3(p.x * k * x + time, p.y * k * y + time, p.z * k)
       );
     }
+  }
+  function update(time, mousePosition) {
+    let x = mousePosition.x / 600;
+
+    // console.log('mouse', mousePosition.x);
+    //var time = performance.now() * 0.0006;
+    // var k = 1.5;
+
+    // //console.log(mousePosition.y);
+    // // let x = this.props.x / 2;
+    // // let y = this.props.y;
+    // let x = mousePosition.x / 600;
+    // //let y = 3;
+    // //let y = mousePosition.y < 300 ? 3 : mousePosition.y / 10;
+    // let y = mousePosition.y < 200 ? 3 : Math.abs(mousePosition.y / 100);
+    // //alert(mousePosition.y);
+    // for (var i = 0; i < blob.geometry.vertices.length; i++) {
+    //   var p = blob.geometry.vertices[i];
+    //   p.normalize().multiplyScalar(
+    //     1 +
+    //       0.3 *
+    //         noise.noise.perlin3(p.x * k * x + time, p.y * k * y + time, p.z * k)
+    //   );
+    // }
+    deformGeometry(time, mousePosition);
     blob.geometry.verticesNeedUpdate = true; //must be set or vertices will not update
     blob.geometry.computeVertexNormals();
     blob.geometry.normalsNeedUpdate = true;
-    // blob.rotation.x += 0.01 + x / 1000;
-    // blob.rotation.z += 0.01 + x / 1000;
+    blob.rotation.x += 0.01 + x / 1000;
+    blob.rotation.z += 0.01 + x / 1000;
 
     // ========
     // const angle = time * speed;

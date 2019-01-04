@@ -22,7 +22,7 @@ export default container => {
   function bindEventListeners() {
     window.onresize = resizeCanvas;
     deviceMotionSupported
-      ? (window.ondeviceorientation = deviceMotion)
+      ? (window.ondevicemotion = deviceMotion)
       : (window.onmousemove = mouseMove);
     resizeCanvas();
   }
@@ -47,9 +47,10 @@ export default container => {
     );
   }
 
-  function deviceMotion({ alpha, beta, gamma }) {
-    console.log('motion', alpha, beta, gamma);
-    sceneManager.onMouseMove(alpha * 10, beta);
+  function deviceMotion({ accelerationIncludingGravity }) {
+    //console.log('motion', x, y, z);
+    const { x, y, z } = accelerationIncludingGravity;
+    sceneManager.onMouseMove(x * 100, y * 100);
   }
 
   function render(time) {
