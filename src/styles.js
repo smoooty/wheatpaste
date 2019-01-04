@@ -11,9 +11,9 @@ const Div = styled.div`
     '. nme nme nme nme nme nme nme nme nme nme .'
     '. idk idk idk wtf wtf wtf wtf wtf wtf wtf .'
     '. blb blb blb blb cty cty cty cty cty cty .'
-    '. blb blb blb blb git git git amp amp . .'
-    '. blb blb blb blb lnk lnk lnk amp amp . .'
-    '. blb blb blb blb . . . . . . .'
+    '. blb blb blb blb git git git amp amp   . .'
+    '. blb blb blb blb lnk lnk lnk amp amp   . .'
+    '. blb blb blb blb   .   .   .   .   .   . .'
     '. mal mal mal mal mal mal mal mal mal mal .'
     '. eml eml eml eml eml eml eml eml eml eml .';
   grid-template-rows: repeat(10, ${getRems(75)});
@@ -30,8 +30,8 @@ const Div = styled.div`
       'blb blb blb blb blb blb'
       'blb blb blb blb blb blb'
       'blb blb blb blb blb blb'
-      'git git git amp amp .'
-      'lnk lnk lnk amp amp .'
+      'git git git amp amp   .'
+      'lnk lnk lnk amp amp   .'
       'cty cty cty cty cty cty'
       'mal mal mal mal mal mal'
       'eml eml eml eml eml eml';
@@ -47,8 +47,8 @@ const Div = styled.div`
       'blb blb blb blb blb blb' ${getRems(75)}
       'blb blb blb blb blb blb' ${getRems(75)}
       'blb blb blb blb blb blb' ${getRems(75)}
-      'git git git amp amp .' minmax(min-content, max-content)
-      'lnk lnk lnk amp amp .' minmax(min-content, max-content)
+      'git git git amp amp   .' minmax(min-content, max-content)
+      'lnk lnk lnk amp amp   .' minmax(min-content, max-content)
       'cty cty cty cty cty cty' minmax(min-content, max-content)
       'mal mal mal mal mal mal' minmax(min-content, max-content)
       'eml eml eml eml eml eml' minmax(min-content, max-content);

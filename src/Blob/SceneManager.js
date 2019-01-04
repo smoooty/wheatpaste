@@ -23,7 +23,6 @@ export default canvas => {
 
   function buildScene() {
     const scene = new THREE.Scene();
-    //scene.background = new THREE.Color('#FFF');
 
     return scene;
   }
@@ -75,8 +74,8 @@ export default canvas => {
     for (let i = 0; i < sceneSubjects.length; i++)
       sceneSubjects[i].update(elapsedTime, mousePosition);
 
-    //updateCameraPositionRelativeToMouse();
-
+    // updateCameraPositionRelativeToMouse();
+    // GeneralLights.update(elapsedTime);
     renderer.render(scene, camera);
   }
 

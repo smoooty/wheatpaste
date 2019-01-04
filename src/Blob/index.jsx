@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import * as THREE from 'three';
-
-import * as noise from './perlin';
 
 import { Div } from './styles';
 
@@ -12,14 +9,10 @@ export default class Blob extends Component {
     threeEntryPoint(this.mount);
   }
 
-  componentWillUnmount() {
-    // this.stop();
-    // this.mount.removeChild(this.renderer.domElement);
-  }
-
   render() {
     return (
       <Div
+        css={this.props.css}
         ref={mount => {
           this.mount = mount;
         }}

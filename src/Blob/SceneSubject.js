@@ -4,8 +4,6 @@ import * as noise from './perlin';
 import normalMap from '../NormalMap.png';
 import abstract from '../Abstract5.png';
 
-// import alphaTexture from '../../../../assets/textures/stripes_gradient.jpg';
-
 export default scene => {
   const geometry = new THREE.SphereGeometry(1, 128, 128);
   const textureLoader = new THREE.TextureLoader();
@@ -31,46 +29,7 @@ export default scene => {
   blob.castShadow = true;
   blob.receiveShadow = true;
   scene.add(blob);
-  // ==========
-  // const group = new THREE.Group();
 
-  // const subjectGeometry = deformGeometry(new THREE.IcosahedronGeometry(10, 2));
-
-  // const subjectMaterial = new THREE.MeshStandardMaterial({
-  //   color: '#000',
-  //   transparent: true,
-  //   side: THREE.DoubleSide,
-  //   alphaTest: 0.5,
-  // });
-  // subjectMaterial.alphaMap = new THREE.TextureLoader().load(alphaTexture);
-  // subjectMaterial.alphaMap.magFilter = THREE.NearestFilter;
-  // subjectMaterial.alphaMap.wrapT = THREE.RepeatWrapping;
-  // subjectMaterial.alphaMap.repeat.y = 1;
-
-  // const subjectMesh = new THREE.Mesh(subjectGeometry, subjectMaterial);
-
-  // const subjectWireframe = new THREE.LineSegments(
-  //   new THREE.EdgesGeometry(subjectGeometry),
-  //   new THREE.LineBasicMaterial()
-  // );
-
-  // group.add(subjectMesh);
-  // group.add(subjectWireframe);
-  // scene.add(group);
-
-  // group.rotation.z = Math.PI / 4;
-
-  // const speed = 0.02;
-  // const textureOffsetSpeed = 0.02;
-
-  // function deformGeometry(geometry) {
-  //   for (let i = 0; i < geometry.vertices.length; i += 2) {
-  //     const scalar = 1 + Math.random() * 0.8;
-  //     geometry.vertices[i].multiplyScalar(scalar);
-  //   }
-
-  //   return geometry;
-  // }
   function deformGeometry(time, position) {
     var k = 1.5;
     let x = position.x / 600;
@@ -88,26 +47,6 @@ export default scene => {
   function update(time, mousePosition) {
     let x = mousePosition.x / 600;
 
-    // console.log('mouse', mousePosition.x);
-    //var time = performance.now() * 0.0006;
-    // var k = 1.5;
-
-    // //console.log(mousePosition.y);
-    // // let x = this.props.x / 2;
-    // // let y = this.props.y;
-    // let x = mousePosition.x / 600;
-    // //let y = 3;
-    // //let y = mousePosition.y < 300 ? 3 : mousePosition.y / 10;
-    // let y = mousePosition.y < 200 ? 3 : Math.abs(mousePosition.y / 100);
-    // //alert(mousePosition.y);
-    // for (var i = 0; i < blob.geometry.vertices.length; i++) {
-    //   var p = blob.geometry.vertices[i];
-    //   p.normalize().multiplyScalar(
-    //     1 +
-    //       0.3 *
-    //         noise.noise.perlin3(p.x * k * x + time, p.y * k * y + time, p.z * k)
-    //   );
-    // }
     deformGeometry(time, mousePosition);
     blob.geometry.verticesNeedUpdate = true; //must be set or vertices will not update
     blob.geometry.computeVertexNormals();
@@ -121,11 +60,6 @@ export default scene => {
     // group.rotation.y = angle;
 
     // subjectMaterial.alphaMap.offset.y = 0.55 + time * textureOffsetSpeed;
-
-    // subjectWireframe.material.color.setHSL(Math.sin(angle * 2), 0.5, 0.5);
-
-    // const scale = (Math.sin(angle * 8) + 6.4) / 5;
-    // subjectWireframe.scale.set(scale, scale, scale);
   }
 
   return {
