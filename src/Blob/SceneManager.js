@@ -4,7 +4,6 @@ import GeneralLights from './GeneralLights';
 
 export default canvas => {
   const clock = new THREE.Clock();
-  const origin = new THREE.Vector3(0, 0, 0);
 
   const screenDimensions = {
     width: canvas.width,
@@ -50,12 +49,7 @@ export default canvas => {
     const fieldOfView = 75;
     const nearPlane = 0.1;
     const farPlane = 1000;
-    const camera = new THREE.PerspectiveCamera(
-      fieldOfView,
-      aspectRatio,
-      nearPlane,
-      farPlane
-    );
+    const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
 
     camera.position.z = 2;
 
@@ -71,19 +65,8 @@ export default canvas => {
   function update() {
     const elapsedTime = clock.getElapsedTime();
 
-    for (let i = 0; i < sceneSubjects.length; i++)
-      sceneSubjects[i].update(elapsedTime, mousePosition);
-
-    // updateCameraPositionRelativeToMouse();
-    // GeneralLights.update(elapsedTime);
+    for (let i = 0; i < sceneSubjects.length; i++) sceneSubjects[i].update(elapsedTime, mousePosition);
     renderer.render(scene, camera);
-  }
-
-  function updateCameraPositionRelativeToMouse() {
-    // camera.position.x += (mousePosition.x * 0.01 - camera.position.x) * 0.01;
-    // camera.position.y += (-(mousePosition.y * 0.01) - camera.position.y) * 0.01;
-    // camera.lookAt(origin);
-    //console.log(mousePosition.x, mousePosition.y);
   }
 
   function onWindowResize() {

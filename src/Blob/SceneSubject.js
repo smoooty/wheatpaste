@@ -37,11 +37,7 @@ export default scene => {
 
     for (var i = 0; i < blob.geometry.vertices.length; i++) {
       var p = blob.geometry.vertices[i];
-      p.normalize().multiplyScalar(
-        1 +
-          0.3 *
-            noise.noise.perlin3(p.x * k * x + time, p.y * k * y + time, p.z * k)
-      );
+      p.normalize().multiplyScalar(1 + 0.3 * noise.noise.perlin3(p.x * k * x + time, p.y * k * y + time, p.z * k));
     }
   }
   function update(time, mousePosition) {
@@ -53,13 +49,6 @@ export default scene => {
     blob.geometry.normalsNeedUpdate = true;
     blob.rotation.x += 0.01 + x / 1000;
     blob.rotation.z += 0.01 + x / 1000;
-
-    // ========
-    // const angle = time * speed;
-
-    // group.rotation.y = angle;
-
-    // subjectMaterial.alphaMap.offset.y = 0.55 + time * textureOffsetSpeed;
   }
 
   return {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import getRems from './utilities/rems';
-import query from './utilities/queries';
+import getRems from './utilities/getRems';
+import query from './utilities/query';
 
 const Div = styled.div`
   display: grid;

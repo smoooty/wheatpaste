@@ -21,13 +21,6 @@ export default scene => {
   directionalLight2.castShadow = true;
   directionalLight2.name = 'directionalLight2';
   scene.add(directionalLight2);
-  // =======
-  // const lightIn = new THREE.PointLight('#4CAF50', 30);
-  // const lightOut = new THREE.PointLight('#2196F3', 10);
-  // lightOut.position.set(40, 20, 40);
-
-  // scene.add(lightIn);
-  // scene.add(lightOut);
 
   const rad = 80;
 
